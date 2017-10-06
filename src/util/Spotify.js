@@ -43,11 +43,10 @@ const Spotify = {
     },
 
     savePlaylist(playListName, uriList){
-        
+
         if(playListName && uriList){
             console.log(playListName);
-            console.log(uriList);
-            this.getAccessToken();
+            console.log(uriList);            
             
             const headers = {
                                 Authorization: `Bearer ${accessToken}`,
@@ -67,11 +66,7 @@ const Spotify = {
                 return fetch(`https://api.spotify.com/v1/users/${userID}/playlists`, {
                         headers: headers,                        
                         method: 'POST',
-                        body: JSON.stringify(
-                                    { 
-                                        data : { name: playListName, public: false }
-                                    }  
-                                )                        
+                        body: JSON.stringify({ name: playListName, public: false })
                     });
                 }
             )
@@ -81,9 +76,7 @@ const Spotify = {
                     return fetch(`https://api.spotify.com/v1/users/${userID}/playlists/${playlistID}/tracks`,{
                         headers: headers,                        
                         method: 'POST',
-                        data: {
-                            name: JSON.stringify({ uris: uriList, public: false})
-                        }
+                        body: JSON.stringify({ uris: uriList, public: false})                        
                     });
                 }
             );
