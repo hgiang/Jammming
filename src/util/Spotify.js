@@ -66,7 +66,7 @@ const Spotify = {
                 return fetch(`https://api.spotify.com/v1/users/${userID}/playlists`, {
                         headers: headers,                        
                         method: 'POST',
-                        body: JSON.stringify({ name: playListName, public: false })
+                        body: JSON.stringify({ "name": playListName})
                     });
                 }
             )
@@ -76,7 +76,7 @@ const Spotify = {
                     return fetch(`https://api.spotify.com/v1/users/${userID}/playlists/${playlistID}/tracks`,{
                         headers: headers,                        
                         method: 'POST',
-                        body: JSON.stringify({ uris: uriList, public: false})                        
+                        body: JSON.stringify({ "uris": uriList })                        
                     });
                 }
             );
